@@ -521,6 +521,13 @@ class PredictApp(HydraHeadApp):
                                 return df_use_in_model
                             # function model for predict peptide ---------------------------------------------------------------- 
                             def use_model(data_user_features_user_in_model, data_user_nec_pos_in_model):
+                                # progress bar
+                                progress_text = "Operation in progress. Please wait."
+                                my_bar = st.progress(0, text=progress_text)
+                                for percent_complete in range(100):
+                                    time.sleep(0.01)
+                                    my_bar.progress(percent_complete*100/len(data_user_features_user_in_model), text=progress_text)
+                                    
                                 # list_test_nom = data_user_features_user_in_model.values.tolist()
                                 # predictions_anti_or_non = model_anti_or_non.predict(data_user_features_user_in_model)
                                 real_probs_anti_or_non = model_anti_or_non.predict_proba(data_user_features_user_in_model)[0]
