@@ -15,27 +15,9 @@ class DashbApp(HydraHeadApp):
         st.title("Dashboard for data set")
         st.info("Gain a better understanding of the data powering our model. This dashboard reveals trends and relationships used during model training and testing.")
 
-        # ตรวจสอบว่าไฟล์มีจริงไหม
         pdf_path = "apps/Handbook for dashboard.pdf"
-        st.write("🔍 PDF file exists:", os.path.exists(pdf_path))
 
-        if os.path.exists(pdf_path):
-            with open(pdf_path, "rb") as f:
-                base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-
-            pdf_display = f'''
-                <iframe 
-                    src="data:application/pdf;base64,{base64_pdf}" 
-                    width="100%" height="800px" 
-                    style="border: none;">
-                </iframe>
-            '''
-            st.markdown("### 📄 คู่มือการใช้งาน Dashboard", unsafe_allow_html=True)
-            st.markdown(pdf_display, unsafe_allow_html=True)
-        else:
-            st.error("❌ ไม่พบไฟล์ PDF ที่ path: " + pdf_path)
-
-            st.markdown(
+        st.markdown(
         """
         <style>
         .open-button {
