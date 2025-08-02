@@ -146,8 +146,6 @@ class PredictApp(HydraHeadApp):
 
                     # st.write('You selected:', option_gram)
                     # st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
-                top_loader_text = st.empty()
-                top_loader_bar = st.empty()
 
                 cl001, ddd,cl002,cl003, cl004 = st.columns((0.95,3.8,2.5,4,16))  
                 if cl002.button("🦠 Predict"):
@@ -619,8 +617,8 @@ class PredictApp(HydraHeadApp):
                             
                             for idx, i in enumerate(df_user_name_seq['Sequence']):
                                 percent_complete = int((idx + 1) / total * 100)
-                                top_loader_text.markdown(f"🔄 <b> loading... {percent_complete}%</b>", unsafe_allow_html=True)
-                                top_loader_bar.progress(percent_complete)
+                                progress_text.markdown(f"🔄 <b> loading... {percent_complete}%</b>", unsafe_allow_html=True)
+                                progress_text.progress(percent_complete)
                                 time.sleep(0.01)  # ช่วยให้ bar ลื่นขึ้น
 
                                 len_list.append(len(i))
@@ -648,7 +646,7 @@ class PredictApp(HydraHeadApp):
                                 similarity_hemoglobin.append(list_sim_align[4])
                                 similarity_keratin.append(list_sim_align[5])
                             # progress_text.markdown("✅ <span style='color:green;font-weight:bold;'>Complete!</span>", unsafe_allow_html=True)
-                            top_loader_text.markdown("✅ <b> Complete!</b>", unsafe_allow_html=True)# หรือจะใช้ top_loader_text.empty() เพื่อลบออก
+                            progress_text.markdown("✅ <b> Complete!</b>", unsafe_allow_html=True)# หรือจะใช้ top_loader_text.empty() เพื่อลบออก
 
                            
                             df_use_in_model = all_data_user(len_list, hydrophobic_list, hydrophilic_list, uncharged_list, positive_charge_list, Negative_charge_list, Molecular_Weight_list, pI_list, score_hydrophilic_list, Score_hydrophobic_list, similarity_Betadefensin, similarity_Drosocin, similarity_Spaetzle, similarity_BRAF, similarity_hemoglobin, similarity_keratin)
