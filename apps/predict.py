@@ -115,7 +115,7 @@ class PredictApp(HydraHeadApp):
                     st.markdown(I_option_anti, unsafe_allow_html=True)
                     # st.markdown("Select the range threshold antimicrobial peptide model 👇")
                     option_anti = st.selectbox(
-                        '',["50", "60", "70", "80"])
+                        '',["60", "70", "80"])
 
 
                     # st.write('You selected:', option_anti)
@@ -142,7 +142,7 @@ class PredictApp(HydraHeadApp):
                     I_option_gram = '<div align="left"><p style="font-sans-serif:; color: #353131; font-size: 16px; background-color: white; border-radius: 5px; text-align:center;">Select the threshold for <br>gram bacteria model 👇</p>'
                     st.markdown(I_option_gram, unsafe_allow_html=True)
                     option_gram = st.selectbox(
-                        ' ',["50", "60", "70", "80"])
+                        ' ',["60", "70", "80"])
 
                     # st.write('You selected:', option_gram)
                     # st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
