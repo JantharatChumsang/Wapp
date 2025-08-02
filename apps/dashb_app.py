@@ -20,7 +20,7 @@ class DashbApp(HydraHeadApp):
 
         # Handbook PDF    
        with open("apps/Handbook for dashboard.pdf", "rb") as f:
-            base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+           base64_pdf = base64.b64encode(f.read()).decode('utf-8')
         
         # 2. ฝัง PDF ด้วย iframe
         pdf_display = f'''
