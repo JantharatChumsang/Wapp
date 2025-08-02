@@ -4,6 +4,7 @@ import codecs
 from hydralit import HydraHeadApp
 import streamlit.components.v1 as stc 
 import base64
+import os
 
 class DashbApp(HydraHeadApp):
 
@@ -22,11 +23,15 @@ class DashbApp(HydraHeadApp):
             pdf_bytes = f.read()
             b64_pdf = base64.b64encode(pdf_bytes).decode()
         
-        href = f'''
-            <a href="data:application/pdf;base64,{b64_pdf}" target="_blank" class="open-button">
-                📄 Open file
-            </a>
-        '''
+        # href = f'''
+        #     <a href="data:application/pdf;base64,{b64_pdf}" target="_blank" class="open-button">
+        #         📄 Open file
+        #     </a>
+        # '''
+        
+        st.write(os.getcwd())  # ดู path ที่ Streamlit รันอยู่
+        st.write(os.path.exists("apps/Handbook for dashboard.pdf"))  # True = เจอ
+
         
         st.markdown(
     """
@@ -58,7 +63,7 @@ class DashbApp(HydraHeadApp):
 )
 
         
-        st.markdown(href, unsafe_allow_html=True)
+        # st.markdown(href, unsafe_allow_html=True)
 
         
         def st_webpage(page_html,width=1190,height=600):
