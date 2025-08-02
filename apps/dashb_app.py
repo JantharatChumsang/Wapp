@@ -14,11 +14,11 @@ class DashbApp(HydraHeadApp):
 
     def run(self):
         st.title("Dashboard for data set")
-        st.info("This is an info message.")
+        st.info("Gain a better understanding of the data powering our model. This dashboard reveals trends and relationships used during model training and testing.")
                 #### import html ####
 
         # Handbook PDF    
-        with open("Handbook for dashboard.pdf", "rb") as f:
+        with open("apps/Handbook for dashboard.pdf", "rb") as f:
             pdf_bytes = f.read()
             b64_pdf = base64.b64encode(pdf_bytes).decode()
         
