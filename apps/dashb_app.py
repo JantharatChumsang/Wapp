@@ -23,11 +23,11 @@ class DashbApp(HydraHeadApp):
             pdf_bytes = f.read()
             b64_pdf = base64.b64encode(pdf_bytes).decode()
         
-        # href = f'''
-        #     <a href="data:application/pdf;base64,{b64_pdf}" target="_blank" class="open-button">
-        #         📄 Open file
-        #     </a>
-        # '''
+        href = f'''
+            <a href="data:application/pdf;base64,{b64_pdf}" target="_blank" class="open-button">
+                📄 Open file
+            </a>
+        '''
         
         st.write(os.getcwd())  # ดู path ที่ Streamlit รันอยู่
         st.write(os.path.exists("apps/Handbook for dashboard.pdf"))  # True = เจอ
