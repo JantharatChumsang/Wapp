@@ -19,19 +19,20 @@ class DashbApp(HydraHeadApp):
                 #### import html ####
 
         # Handbook PDF    
-        with open("apps/Handbook for dashboard.pdf", "rb") as f:
-            pdf_bytes = f.read()
-            b64_pdf = base64.b64encode(pdf_bytes).decode()
+       with open("apps/Handbook for dashboard.pdf", "rb") as f:
+            base64_pdf = base64.b64encode(f.read()).decode('utf-8')
         
-        href = f'''
-            <a href="data:application/pdf;base64,{b64_pdf}" target="_blank" class="open-button">
-                📄 Open file
-            </a>
+        # 2. ฝัง PDF ด้วย iframe
+        pdf_display = f'''
+            <iframe 
+                src="data:application/pdf;base64,{base64_pdf}" 
+                width="100%" height="800px" 
+                style="border: none;">
+            </iframe>
         '''
         
-        st.write(os.getcwd())  # ดู path ที่ Streamlit รันอยู่
-        st.write(os.path.exists("apps/Handbook for dashboard.pdf"))  # True = เจอ
-
+        st.markdown("### 📄 คู่มือการใช้งาน Dashboard", unsafe_allow_html=True)
+        st.markdown(pdf_display, unsafe_allow_html=True)
         
         st.markdown(
     """
