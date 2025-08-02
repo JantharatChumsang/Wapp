@@ -607,16 +607,20 @@ class PredictApp(HydraHeadApp):
                                 </style>
                             """, unsafe_allow_html=True)
                             # ---- progress bar --------------------------------------------------------------
+                            progress_text = st.empty()
                             progress_bar = st.progress(0)
-                            status_text = st.empty()
-                            total = len(df_user_name_seq)
+                            total = len(df_user_name_seq['Sequence'])
+
                             # ------------------------------------------------------------------------------
                             progress_bar = st.progress(0)  # สร้าง progress bar
                             total = len(df_user_name_seq['Sequence'])  # นับจำนวนเปปไทด์ทั้งหมด
                             
                             for idx, i in enumerate(df_user_name_seq['Sequence']):
-                                progress_bar.progress(int((idx + 1) / total * 100))  # อัปเดต progress bar
-                                time.sleep(0.01)  
+                            percent_complete = int((idx + 1) / total * 100)
+                            progress_text.markdown(f"🔄 loading... **{percent_complete}%**")
+                            progress_bar.progress(percent_complete)
+                            time.sleep(0.01)  # เพิ่มความ smooth
+
                             
 
                                 len_list.append(len(i))
@@ -643,6 +647,9 @@ class PredictApp(HydraHeadApp):
                                 similarity_BRAF.append(list_sim_align[3])
                                 similarity_hemoglobin.append(list_sim_align[4])
                                 similarity_keratin.append(list_sim_align[5])
+
+                                progress_text.markdown("✅ **Complete!**")
+                                st.success("🎉 Complete!! ✅")
                                                         
                             df_use_in_model = all_data_user(len_list, hydrophobic_list, hydrophilic_list, uncharged_list, positive_charge_list, Negative_charge_list, Molecular_Weight_list, pI_list, score_hydrophilic_list, Score_hydrophobic_list, similarity_Betadefensin, similarity_Drosocin, similarity_Spaetzle, similarity_BRAF, similarity_hemoglobin, similarity_keratin)
                             
