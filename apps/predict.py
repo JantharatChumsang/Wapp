@@ -648,8 +648,6 @@ class PredictApp(HydraHeadApp):
                                 similarity_hemoglobin.append(list_sim_align[4])
                                 similarity_keratin.append(list_sim_align[5])
 
-                                progress_text.markdown("✅ **Complete!**")
-                                st.success("🎉 Complete!! ✅")
                                                         
                             df_use_in_model = all_data_user(len_list, hydrophobic_list, hydrophilic_list, uncharged_list, positive_charge_list, Negative_charge_list, Molecular_Weight_list, pI_list, score_hydrophilic_list, Score_hydrophobic_list, similarity_Betadefensin, similarity_Drosocin, similarity_Spaetzle, similarity_BRAF, similarity_hemoglobin, similarity_keratin)
                             
