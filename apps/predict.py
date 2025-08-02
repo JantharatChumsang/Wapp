@@ -611,7 +611,13 @@ class PredictApp(HydraHeadApp):
                             status_text = st.empty()
                             total = len(df_user_name_seq)
                             # ------------------------------------------------------------------------------
-                            for i in df_user_name_seq['Sequence']:
+                            progress_bar = st.progress(0)  # สร้าง progress bar
+                            total = len(df_user_name_seq['Sequence'])  # นับจำนวนเปปไทด์ทั้งหมด
+                            
+                            for idx, i in enumerate(df_user_name_seq['Sequence']):
+                                progress_bar.progress(int((idx + 1) / total * 100))  # อัปเดต progress bar
+                                time.sleep(0.01)  
+                            
 
                                 len_list.append(len(i))
 
