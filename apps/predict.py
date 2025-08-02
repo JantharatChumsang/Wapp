@@ -617,7 +617,7 @@ class PredictApp(HydraHeadApp):
                             
                             for idx, i in enumerate(df_user_name_seq['Sequence']):
                                 percent_complete = int((idx + 1) / total * 100)
-                                progress_text.markdown(f"🔄 loading... {percent_complete}%")
+                                progress_text.markdown(f"🔄 loading... **{percent_complete}%**")
                                 progress_bar.progress(percent_complete)
                                 time.sleep(0.01)  # เพื่อความลื่นไหล
 
