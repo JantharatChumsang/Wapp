@@ -602,7 +602,7 @@ class PredictApp(HydraHeadApp):
                             st.markdown("""
                                 <style>
                                 .stProgress > div > div > div > div {
-                                    background-color: #f48fb1;
+                                    background-color: #76BC43;
                                 }
                                 </style>
                             """, unsafe_allow_html=True)
@@ -617,9 +617,9 @@ class PredictApp(HydraHeadApp):
                             
                             for idx, i in enumerate(df_user_name_seq['Sequence']):
                                 percent_complete = int((idx + 1) / total * 100)
-                                progress_text.markdown(f"🔄 <b> loading... {percent_complete}%</b>", unsafe_allow_html=True)
-                                progress_text.progress(percent_complete)
-                                time.sleep(0.01)  # ช่วยให้ bar ลื่นขึ้น
+                                progress_text.markdown(f"🔄 loading... {percent_complete}%")
+                                progress_bar.progress(percent_complete)
+                                time.sleep(0.01)  # เพื่อความลื่นไหล
 
                                 len_list.append(len(i))
 
@@ -645,8 +645,8 @@ class PredictApp(HydraHeadApp):
                                 similarity_BRAF.append(list_sim_align[3])
                                 similarity_hemoglobin.append(list_sim_align[4])
                                 similarity_keratin.append(list_sim_align[5])
-                            # progress_text.markdown("✅ <span style='color:green;font-weight:bold;'>Complete!</span>", unsafe_allow_html=True)
-                            progress_text.markdown("✅ <b> Complete!</b>", unsafe_allow_html=True)# หรือจะใช้ top_loader_text.empty() เพื่อลบออก
+                            progress_text.markdown("✅ <span style='color:green;font-weight:bold;'>Complete!</span>", unsafe_allow_html=True)
+                           
 
                            
                             df_use_in_model = all_data_user(len_list, hydrophobic_list, hydrophilic_list, uncharged_list, positive_charge_list, Negative_charge_list, Molecular_Weight_list, pI_list, score_hydrophilic_list, Score_hydrophobic_list, similarity_Betadefensin, similarity_Drosocin, similarity_Spaetzle, similarity_BRAF, similarity_hemoglobin, similarity_keratin)
