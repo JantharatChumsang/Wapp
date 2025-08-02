@@ -647,8 +647,8 @@ class PredictApp(HydraHeadApp):
                                 similarity_BRAF.append(list_sim_align[3])
                                 similarity_hemoglobin.append(list_sim_align[4])
                                 similarity_keratin.append(list_sim_align[5])
-
-                                                        
+                            progress_text.markdown("✅ <span style='color:green;font-weight:bold;'>Complete!</span>", unsafe_allow_html=True)
+                           
                             df_use_in_model = all_data_user(len_list, hydrophobic_list, hydrophilic_list, uncharged_list, positive_charge_list, Negative_charge_list, Molecular_Weight_list, pI_list, score_hydrophilic_list, Score_hydrophobic_list, similarity_Betadefensin, similarity_Drosocin, similarity_Spaetzle, similarity_BRAF, similarity_hemoglobin, similarity_keratin)
                             
                             list_mean_ant_non = [95.98, 41.4, 33.1, 16.49, 20.49, 7.91, 10804.93, 8.79, 0.09, 0.12, 5.17, 5.03, 3.44, 5.57, 6.63, 4.41]
