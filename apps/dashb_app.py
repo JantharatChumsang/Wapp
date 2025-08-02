@@ -3,6 +3,7 @@ import hydralit_components as hc
 import codecs
 from hydralit import HydraHeadApp
 import streamlit.components.v1 as stc 
+import base64
 
 class DashbApp(HydraHeadApp):
 
@@ -15,6 +16,44 @@ class DashbApp(HydraHeadApp):
         st.title("Dashboard for data set")
         st.info("This is an info message.")
                 #### import html ####
+
+        # Handbook PDF    
+        with open("Handbook for dashboard.pdf", "rb") as f:
+            pdf_bytes = f.read()
+            b64_pdf = base64.b64encode(pdf_bytes).decode()
+        
+        href = f'''
+            <a href="data:application/pdf;base64,{b64_pdf}" target="_blank" class="open-button">
+                📄 Open file
+            </a>
+        '''
+        
+        st.markdown(
+            f"""
+            <style>
+            .open-button {{
+                display: inline-block;
+                padding: 10px 24px;
+                font-size: 16px;
+                color: #333;
+                border: 2px solid #ccc;
+                border-radius: 999px;
+                text-decoration: none;
+                background-color: #fff;
+                font-weight: 500;
+            }}
+            .open-button:hover {{
+                background-color: #28a745;
+                color: white;
+            }}
+            </style>
+            {href}
+            """,
+            unsafe_allow_html=True
+        )
+        
+        st.markdown(href, unsafe_allow_html=True)
+
         
         def st_webpage(page_html,width=1190,height=600):
             page_file = codecs.open(page_html,'r')
