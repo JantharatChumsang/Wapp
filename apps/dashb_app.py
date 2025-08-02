@@ -18,9 +18,9 @@ class DashbApp(HydraHeadApp):
         pdf_path = "apps/Handbook for dashboard.pdf"
 
         st.markdown(
-    f"""
+    """
     <style>
-    .download-button {{
+    .external-link-button {
         display: inline-block;
         padding: 12px 28px;
         font-size: 16px;
@@ -31,18 +31,18 @@ class DashbApp(HydraHeadApp):
         background-color: #fff;
         font-weight: 500;
         transition: all 0.3s ease;
-    }}
-    .download-button:hover {{
+    }
+    .external-link-button:hover {
         background-color: #1a73e8;
         color: white;
         border: 2px solid #1a73e8;
-    }}
+    }
     </style>
 
-    <a href="data:application/pdf;base64,{pdf_path}" 
-       download="Dashboard_Guide.pdf"
-       class="download-button">
-        📄 Open hand-on Dashboard (PDF)
+    <a href="https://shine-tablecloth-195.notion.site/Handbook-for-dashboard-24307ee6772080469424e9e7634df24d?source=copy_link" 
+       target="_blank"
+       class="external-link-button">
+        📘 Open hand-on Dashboard (Notion)
     </a>
     """,
     unsafe_allow_html=True
