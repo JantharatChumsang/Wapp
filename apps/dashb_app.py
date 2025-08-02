@@ -38,7 +38,8 @@ class DashbApp(HydraHeadApp):
             border: 2px solid #28a745;
         }
         </style>
-        <a href="apps/hands-on-dashboard.pdf" target="_blank">Open Hands-on Dashboard PDF</a>
+    
+        <a href="apps/Handbook%20for%20dashboard.pdf" target="_blank" class="open-button">
 
         
             📄 Open Hands-on Dashboard PDF
