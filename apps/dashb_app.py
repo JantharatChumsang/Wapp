@@ -18,34 +18,35 @@ class DashbApp(HydraHeadApp):
         pdf_path = "apps/Handbook for dashboard.pdf"
 
         st.markdown(
-    """
+    f"""
     <style>
-    .open-button {
+    .download-button {{
         display: inline-block;
-        padding: 10px 24px;
+        padding: 12px 28px;
         font-size: 16px;
-        color: #333;
+        color: #1a73e8;
         border: 2px solid #ccc;
         border-radius: 999px;
         text-decoration: none;
         background-color: #fff;
         font-weight: 500;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    .open-button:hover {
-        background-color: #28a745;
+        transition: all 0.3s ease;
+    }}
+    .download-button:hover {{
+        background-color: #1a73e8;
         color: white;
-        border: 2px solid #28a745;
-    }
+        border: 2px solid #1a73e8;
+    }}
     </style>
 
-    <a href="apps/Handbook%20for%20dashboard.pdf" target="_blank" class="open-button">
+    <a href="data:application/pdf;base64,{b64_pdf}" 
+       download="Dashboard_Guide.pdf"
+       class="download-button">
         📄 Open hand-on Dashboard (PDF)
     </a>
     """,
     unsafe_allow_html=True
 )
-
         # Power BI HTML
         def st_webpage(page_html, width=1190, height=600):
             page_file = codecs.open(page_html, 'r')
