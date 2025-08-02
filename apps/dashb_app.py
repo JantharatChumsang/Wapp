@@ -19,26 +19,6 @@ class DashbApp(HydraHeadApp):
 
         st.markdown(
     """
-    <style>
-    .external-link-button {
-        display: inline-block;
-        padding: 12px 28px;
-        font-size: 16px;
-        color: #1a73e8;
-        border: 2px solid #ccc;
-        border-radius: 999px;
-        text-decoration: none;
-        background-color: #fff;
-        font-weight: 500;
-        transition: all 0.3s ease;
-    }
-    .external-link-button:hover {
-        background-color: #1a73e8;
-        color: white;
-        border: 2px solid #1a73e8;
-    }
-    </style>
-
     <a href="https://shine-tablecloth-195.notion.site/Handbook-for-dashboard-24307ee6772080469424e9e7634df24d?source=copy_link" 
        target="_blank"
        class="external-link-button">
