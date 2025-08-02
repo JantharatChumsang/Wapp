@@ -40,7 +40,7 @@ class DashbApp(HydraHeadApp):
         </style>
     
         <a href="apps/Handbook%20for%20dashboard.pdf" target="_blank" class="open-button">
-            📄 เปิดดู PDF คู่มือ Dashboard
+            📄 Open Hands-on Dashboard PDF
         </a>
         """,
         unsafe_allow_html=True
