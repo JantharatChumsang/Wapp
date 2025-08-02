@@ -13,6 +13,7 @@ class DashbApp(HydraHeadApp):
 
     def run(self):
         st.title("Dashboard for data set")
+        st.info("This is an info message.")
                 #### import html ####
         
         def st_webpage(page_html,width=1190,height=600):
