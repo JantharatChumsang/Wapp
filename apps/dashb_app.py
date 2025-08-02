@@ -39,7 +39,7 @@ class DashbApp(HydraHeadApp):
     }}
     </style>
 
-    <a href="data:application/pdf;base64,{b64_pdf}" 
+    <a href="data:application/pdf;base64,{pdf_path}" 
        download="Dashboard_Guide.pdf"
        class="download-button">
         📄 Open hand-on Dashboard (PDF)
